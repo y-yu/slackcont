@@ -24,7 +24,7 @@ object SlackCont {
   def failed(throwable: Throwable): SlackCont[Nothing] =
     fromFuture(Future.failed(throwable))
 
-  def result[A](a: => A): SlackCont[A] = {env =>
+  def result[A](a: => A): SlackCont[A] = { env =>
     implicit val ec: ExecutionContext = env.ec
 
     ContT(_ => Future.successful(a))
