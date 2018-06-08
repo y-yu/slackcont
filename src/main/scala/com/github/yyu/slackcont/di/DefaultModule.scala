@@ -9,7 +9,7 @@ import com.google.inject.AbstractModule
 import slack.rtm.SlackRtmClient
 
 class DefaultModule extends AbstractModule {
-  def configure(): Unit = {
+  override def configure(): Unit = {
     bind(classOf[ActorSystem]).toInstance(ActorSystem("slack"))
 
     bind(classOf[ConfigLoader]).to(classOf[ConfigLoaderImpl])

@@ -2,11 +2,12 @@ package com.github.yyu.slackcont.infra.impl
 
 import akka.actor.ActorSystem
 import com.github.yyu.slackcont.conifg.ConfigLoader
-import com.google.inject.Provider
+import com.google.inject.{Provider, Singleton}
 import javax.inject.Inject
 import slack.rtm.SlackRtmClient
 import scala.concurrent.duration._
 
+@Singleton
 class SlackRtmClientProvider @Inject()(
   configLoader: ConfigLoader
 )(

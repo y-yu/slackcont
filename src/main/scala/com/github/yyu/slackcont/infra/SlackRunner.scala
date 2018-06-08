@@ -7,7 +7,7 @@ import scala.concurrent.Future
 // これSlackのデータ構造そのまま使っているので、
 // 作りなおすときはv2つくるしかない……
 trait SlackRunner {
-  def onMessage(f: Message => SlackCont[Unit]): Future[Unit]
+  def onMessage(f: Message => SlackCont[Unit]): Unit
 
-  def onEvent(f: SlackEvent => SlackCont[Unit]): Future[Unit]
+  def onEvent(f: SlackEvent => SlackCont[Unit]): Unit
 }

@@ -17,7 +17,7 @@ object HelloWorldCont {
         _ <- if (message.text == "Hello") {
           k("World")
         } else {
-          Future.successful()
+          Future.successful(())
         }
       } yield ()
   }

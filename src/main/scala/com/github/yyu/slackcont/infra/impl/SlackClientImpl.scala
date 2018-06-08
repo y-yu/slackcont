@@ -1,12 +1,9 @@
 package com.github.yyu.slackcont.infra.impl
 
-import akka.actor.ActorSystem
 import com.github.yyu.slackcont.infra.SlackClient
 import com.github.yyu.slackcont.infra.SlackClient.SlackSendMessage
 import com.google.inject.Inject
 import slack.rtm.SlackRtmClient
-import sun.misc.ObjectInputFilter.Config
-
 import scala.concurrent.Future
 
 class SlackClientImpl @Inject() (

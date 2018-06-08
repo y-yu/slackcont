@@ -3,15 +3,13 @@ package com.github.yyu.slackcont.main
 import com.github.yyu.slackcont.cont.impl.{AddCont, HelloWorldCont, SayCont}
 import com.github.yyu.slackcont.di.DefaultModule
 import com.github.yyu.slackcont.infra.SlackRunner
-import play.api.inject.guice.GuiceInjectorBuilder
+import com.google.inject.Guice
 
 object Main {
   def main(args: Array[String]): Unit = {
-    val injector = new GuiceInjectorBuilder()
-      .bindings(new DefaultModule)
-      .build()
+    val injector = Guice.createInjector(new DefaultModule)
 
-    val slackRunner = injector.instanceOf(classOf[SlackRunner])
+    val slackRunner = injector.getInstance(classOf[SlackRunner])
 
     slackRunner.onMessage(msg =>
       for {

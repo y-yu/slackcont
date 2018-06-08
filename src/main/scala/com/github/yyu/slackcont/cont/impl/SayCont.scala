@@ -11,6 +11,6 @@ object SayCont {
   def sayCont(sendChannelId: String, sendMessage: String): SlackCont[Unit] = SlackCont[Unit] { env =>
     k =>
       env.client.sendMessage(SlackSendMessage(sendChannelId, sendMessage))
-      k()
+      k(())
   }
 }

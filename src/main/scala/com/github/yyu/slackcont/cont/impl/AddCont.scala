@@ -25,7 +25,7 @@ object AddCont {
           }
 
         case _ =>
-          Future.successful()
+          Future.successful(())
       }
   }
 }
