@@ -2,6 +2,7 @@ Slack Cont
 ===================
 
 [![Build Status](https://travis-ci.org/y-yu/slackcont.svg?branch=master)](https://travis-ci.org/y-yu/slackcont)
+[![Coverage Status](https://coveralls.io/repos/github/y-yu/slackcont/badge.svg?branch=master)](https://coveralls.io/github/y-yu/slackcont?branch=master)
 
 This is a SlackBot based on Continuation Monad.
 
