@@ -13,8 +13,13 @@ addons:
     packages:
       - oracle-java8-installer
 script:
-  - ./sbt test
+  - ./sbt coverage test
+after_success:
+  - ./sbt coverageReport coveralls
 before_cache:
   - find $HOME/.sbt -name "*.lock" | xargs rm
   - find $HOME/.ivy2 -name "ivydata-*.properties" | xargs rm
   - find $HOME/.ivy2/cache -name "*SNAPSHOT*" | xargs rm -rf
+env:
+  global:
+    - secure: "l+pQzaTIssVBV71jQdG82EVtwxmy6+IratfMi+HMsa4AqDFCQSEAW0Yz7HoGSC968bdjyaP/58xT/FRzHPR+IoM9lVK5kKOr39ckUNp1YrTJBpn1FLh97DVWFrlw7KgDn+EVQNrPryefm9lwOhbPwODP9+MGViPpTQKdaXoEmDGqTWlrue6xKkpVhFfLYTMfR4h+9BK080ZF35ZEyfKpSFG7So/FMRwp/wmhcqzN5QssVLGUUDMABavJ3vis5kit5qTo4pQzD6Tw2w2o2Ip9aZ7nLwzGqNubYFCDTvHpL9Z1pCHB6F1RDb+JXqpw7R5LV3syPXcvAJZxcctKW9yRKhtu2ePnpKoYt4bOfkAZ5rbvs5YUvzGXpPNovwxzEzL+STCpDjUB22ddZT58UBI1aqjBYixbc4LyAt5efu14BUMnIGbNZ1rYehvwdpsXIkmGw0dBIM7dXya2adBmAYMZ99ol44+4H5dQ7hdS/0adxSMxNIISmR3BdP/PH+CrHZklO8zvgm9ty3rmB5PKAWBJkElfzeLm3gmFWpvDxST5pa2T1fq+0H+dAzxgkUU3JSwaEZecqRVz63033YBb90owgNU2vFc5XfGgyB4O8bBN6ifozwpcAtqHfEBwP3hgt4zHcyNa6FulH3OI9yXEuR9KIq8bAKH7jmKxhEaUGmeJQC0="
