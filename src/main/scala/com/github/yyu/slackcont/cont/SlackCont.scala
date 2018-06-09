@@ -34,6 +34,12 @@ object SlackCont {
     def map[B](f: A => B): SlackCont[B] = M.map(slackCont)(f)
 
     def flatMap[B](f: A => SlackCont[B]): SlackCont[B] = M.bind(slackCont)(f)
+
+    def recover(slackCont: SlackCont[A])(pf: PartialFunction[Throwable, Future[Unit]]): SlackCont[A] = { env =>
+      implicit val ec: ExecutionContext = env.ec
+
+      ContT(k => slackCont(env).run(k).recoverWith(pf))
+    }
   }
 
   implicit val slackContMonadInstance: Monad[SlackCont] = new Monad[SlackCont] {
