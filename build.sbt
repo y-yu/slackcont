@@ -8,6 +8,10 @@ scalaVersion := "2.12.4"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-feature", "-language:postfixOps")
 
+scalapropsWithScalazlaws
+
+scalapropsVersion := "0.5.5"
+
 libraryDependencies ++= Seq(
   "com.github.gilbertw1" %% "slack-scala-client" % "0.2.3",
   "org.scalaz" %% "scalaz-core" % "7.2.24",
