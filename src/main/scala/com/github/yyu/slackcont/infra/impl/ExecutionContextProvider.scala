@@ -8,7 +8,7 @@ import scala.concurrent.ExecutionContext
 class ExecutionContextProvider @Inject()(
   actorSystem: ActorSystem
 ) extends Provider[ExecutionContext] {
-  val ec: ExecutionContext = actorSystem.dispatcher
+  private val ec: ExecutionContext = actorSystem.dispatcher
 
   def get(): ExecutionContext = ec
 }

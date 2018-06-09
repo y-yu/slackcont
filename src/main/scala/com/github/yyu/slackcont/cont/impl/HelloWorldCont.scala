@@ -9,7 +9,7 @@ import scala.concurrent.{ExecutionContext, Future}
   * Helloというメッセージならば継続に"World"を渡す
   */
 object HelloWorldCont {
-  def helloWorldCont(message: Message): SlackCont[String] = SlackCont[String] { env =>
+  def apply(message: Message): SlackCont[String] = SlackCont[String] { env =>
     implicit val ec: ExecutionContext = env.ec
 
     k =>

@@ -13,5 +13,6 @@ libraryDependencies ++= Seq(
   "org.scalaz" %% "scalaz-core" % "7.2.24",
   "com.google.inject" % "guice" % "4.2.0",
   "com.typesafe" % "config" % "1.3.2",
-  "org.scalatest" %% "scalatest" % "3.0.5" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.5" % "test",
+  "org.mockito" % "mockito-core" % "2.18.3" % "test"
 )

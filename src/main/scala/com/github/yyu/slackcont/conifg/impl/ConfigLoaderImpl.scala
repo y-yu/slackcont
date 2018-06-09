@@ -5,8 +5,8 @@ import com.typesafe.config.{Config, ConfigFactory}
 
 import scala.util.Try
 
-class ConfigLoaderImpl extends ConfigLoader {
-  val config: Config = ConfigFactory.load("default.conf")
+class ConfigLoaderImpl(configName: String = "default.conf") extends ConfigLoader {
+  val config: Config = ConfigFactory.load(configName)
 
   def loadString(key: String): Try[String] = {
     Try {

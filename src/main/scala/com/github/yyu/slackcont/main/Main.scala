@@ -1,6 +1,6 @@
 package com.github.yyu.slackcont.main
 
-import com.github.yyu.slackcont.cont.impl.{AddCont, HelloWorldCont, SayCont}
+import com.github.yyu.slackcont.cont.impl.{AddCont, HelloWorldCont, SayCont, TypingCont}
 import com.github.yyu.slackcont.di.DefaultModule
 import com.github.yyu.slackcont.infra.SlackRunner
 import com.google.inject.Guice
@@ -11,17 +11,20 @@ object Main {
 
     val slackRunner = injector.getInstance(classOf[SlackRunner])
 
+    val typingCont = injector.getInstance(classOf[TypingCont])
+
     slackRunner.onMessage(msg =>
       for {
-        world <- HelloWorldCont.helloWorldCont(msg)
-        _ <- SayCont.sayCont(msg.channel, world)
+        _ <- typingCont(msg.channel, 2000)
+        world <- HelloWorldCont(msg)
+        _ <- SayCont(msg.channel, world)
       } yield ()
     )
 
     slackRunner.onMessage(msg =>
       for {
-        num <- AddCont.addCont(msg)
-        _ <- SayCont.sayCont(msg.channel, num.toString)
+        num <- AddCont(msg)
+        _ <- SayCont(msg.channel, num.toString)
       } yield ()
     )
   }

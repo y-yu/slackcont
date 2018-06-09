@@ -13,7 +13,7 @@ import scala.util.matching.Regex
 object AddCont {
   private val addRegex: Regex = """(\d+) ?\+ ?(\d+)""".r
 
-  def addCont(message: Message): SlackCont[Int] = SlackCont[Int] { env =>
+  def apply(message: Message): SlackCont[Int] = SlackCont[Int] { env =>
     implicit val ec: ExecutionContext = env.ec
 
     k =>

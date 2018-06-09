@@ -12,10 +12,9 @@ class SlackRunnerImpl @Inject() (
   slackClient: SlackClient,
   executionContextProvider: ExecutionContextProvider
 ) extends SlackRunner {
+  private val ec: ExecutionContext = executionContextProvider.get()
 
-  implicit val ec: ExecutionContext = executionContextProvider.get()
-
-  val client: SlackRtmClient = slackRtmClientProvider.get()
+  private val client: SlackRtmClient = slackRtmClientProvider.get()
 
   def onMessage(f: Message => SlackCont[Unit]): Unit = {
     val env = SlackEnv(slackClient, ec)
