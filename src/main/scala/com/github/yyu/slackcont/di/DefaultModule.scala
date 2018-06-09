@@ -14,7 +14,7 @@ class DefaultModule extends AbstractModule {
   override def configure(): Unit = {
     bind(classOf[ActorSystem]).toInstance(ActorSystem("slack"))
 
-    bind(classOf[ConfigLoader]).to(classOf[ConfigLoaderImpl])
+    bind(classOf[ConfigLoader]).toInstance(new ConfigLoaderImpl("default.conf"))
 
     bind(classOf[SlackRtmClient]).toProvider(classOf[SlackRtmClientProvider])
 

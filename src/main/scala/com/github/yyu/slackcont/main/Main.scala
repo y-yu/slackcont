@@ -15,8 +15,8 @@ object Main {
 
     slackRunner.onMessage(msg =>
       for {
-        _ <- typingCont(msg.channel, 2000)
         world <- HelloWorldCont(msg)
+        _ <- typingCont(msg.channel, 2000)
         _ <- SayCont(msg.channel, world)
       } yield ()
     )
