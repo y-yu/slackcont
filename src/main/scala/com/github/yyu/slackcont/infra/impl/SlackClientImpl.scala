@@ -2,6 +2,7 @@ package com.github.yyu.slackcont.infra.impl
 
 import com.github.yyu.slackcont.infra.SlackClient
 import com.github.yyu.slackcont.infra.SlackClient.{SlackApiException, SlackEditMessage, SlackSendMessage}
+import com.github.yyu.slackcont.infra.provider.SlackRtmClientProvider
 import com.google.inject.Inject
 import slack.rtm.SlackRtmClient
 import scala.concurrent.{ExecutionContext, Future}

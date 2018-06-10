@@ -2,6 +2,7 @@ package com.github.yyu.slackcont.infra.impl
 
 import com.github.yyu.slackcont.TestUtil._
 import com.github.yyu.slackcont.infra.SlackClient.{SlackApiException, SlackEditMessage, SlackSendMessage}
+import com.github.yyu.slackcont.infra.provider.SlackRtmClientProvider
 import org.mockito.Mockito
 import org.scalatest.{MustMatchers, WordSpec}
 import slack.rtm.SlackRtmClient

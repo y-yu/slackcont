@@ -3,6 +3,7 @@ package com.github.yyu.slackcont.infra.impl
 import com.github.yyu.slackcont.TestUtil._
 import com.github.yyu.slackcont.cont.SlackCont
 import com.github.yyu.slackcont.infra.SlackClient
+import com.github.yyu.slackcont.infra.provider.{ExecutionContextProvider, SlackRtmClientProvider}
 import org.mockito.Mockito
 import org.scalatest.{MustMatchers, WordSpec}
 import slack.rtm.SlackRtmClient

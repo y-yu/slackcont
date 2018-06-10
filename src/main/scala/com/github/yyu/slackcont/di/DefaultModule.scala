@@ -4,7 +4,8 @@ import akka.actor.ActorSystem
 import com.github.yyu.slackcont.conifg.ConfigLoader
 import com.github.yyu.slackcont.conifg.impl.ConfigLoaderImpl
 import com.github.yyu.slackcont.infra.{SlackClient, SlackRunner}
-import com.github.yyu.slackcont.infra.impl.{SlackClientImpl, SlackRtmClientProvider, SlackRunnerImpl}
+import com.github.yyu.slackcont.infra.impl.{SlackClientImpl, SlackRunnerImpl}
+import com.github.yyu.slackcont.infra.provider.SlackRtmClientProvider
 import com.github.yyu.slackcont.util.ThreadSleep
 import com.github.yyu.slackcont.util.impl.ThreadSleepImpl
 import com.google.inject.AbstractModule

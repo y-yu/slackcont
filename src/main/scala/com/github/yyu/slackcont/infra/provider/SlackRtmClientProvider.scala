@@ -1,4 +1,4 @@
-package com.github.yyu.slackcont.infra.impl
+package com.github.yyu.slackcont.infra.provider
 
 import akka.actor.ActorSystem
 import com.github.yyu.slackcont.conifg.ConfigLoader

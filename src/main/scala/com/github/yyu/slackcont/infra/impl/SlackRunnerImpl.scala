@@ -1,6 +1,7 @@
 package com.github.yyu.slackcont.infra.impl
 
 import com.github.yyu.slackcont.cont.SlackCont.{SlackCont, SlackEnv}
+import com.github.yyu.slackcont.infra.provider.{ExecutionContextProvider, SlackRtmClientProvider}
 import com.github.yyu.slackcont.infra.{SlackClient, SlackRunner}
 import com.google.inject.Inject
 import slack.rtm.SlackRtmClient

@@ -12,6 +12,8 @@ scalapropsWithScalazlaws
 
 scalapropsVersion := "0.5.5"
 
+coverageExcludedPackages := ".*di;.*provider;.*main"
+
 libraryDependencies ++= Seq(
   "com.github.gilbertw1" %% "slack-scala-client" % "0.2.3",
   "org.scalaz" %% "scalaz-core" % "7.2.24",
