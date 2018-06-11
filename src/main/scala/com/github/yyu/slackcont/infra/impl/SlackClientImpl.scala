@@ -2,14 +2,13 @@ package com.github.yyu.slackcont.infra.impl
 
 import com.github.yyu.slackcont.infra.SlackClient
 import com.github.yyu.slackcont.infra.SlackClient.{SlackApiException, SlackEditMessage, SlackSendMessage}
-import com.github.yyu.slackcont.infra.provider.SlackRtmClientProvider
-import com.google.inject.Inject
+import com.google.inject.{Inject, Provider}
 import slack.rtm.SlackRtmClient
 import scala.concurrent.{ExecutionContext, Future}
 import scala.util.control.NonFatal
 
 class SlackClientImpl @Inject() (
-  slackRtmClientProvider: SlackRtmClientProvider,
+  slackRtmClientProvider: Provider[SlackRtmClient],
 ) extends SlackClient {
   private val client: SlackRtmClient = slackRtmClientProvider.get()
 

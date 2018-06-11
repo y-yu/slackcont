@@ -1,17 +1,16 @@
 package com.github.yyu.slackcont.infra.impl
 
 import com.github.yyu.slackcont.cont.SlackCont.{SlackCont, SlackEnv}
-import com.github.yyu.slackcont.infra.provider.{ExecutionContextProvider, SlackRtmClientProvider}
 import com.github.yyu.slackcont.infra.{SlackClient, SlackRunner}
-import com.google.inject.Inject
+import com.google.inject.{Inject, Provider}
 import slack.rtm.SlackRtmClient
 import slack.models.{Message, SlackEvent}
 import scala.concurrent.{ExecutionContext, Future}
 
 class SlackRunnerImpl @Inject() (
-  slackRtmClientProvider: SlackRtmClientProvider,
+  slackRtmClientProvider: Provider[SlackRtmClient],
   slackClient: SlackClient,
-  executionContextProvider: ExecutionContextProvider
+  executionContextProvider: Provider[ExecutionContext]
 ) extends SlackRunner {
   private val ec: ExecutionContext = executionContextProvider.get()
 
