@@ -5,7 +5,9 @@ import com.typesafe.config.{Config, ConfigFactory}
 
 import scala.util.Try
 
-class ConfigLoaderImpl(configName: String = "default.conf") extends ConfigLoader {
+class ConfigLoaderImpl(defaultConfigName: String = "default.conf") extends ConfigLoader {
+  val configName: String = System.getProperty("com.github.yyu.slackcont.config", defaultConfigName)
+
   val config: Config = ConfigFactory.load(configName)
 
   def loadString(key: String): Try[String] = {
